@@ -1,0 +1,12 @@
+# Ignorar directorio node_modules
+kraken-tests/node_modules/
+
+# Ignorar directorio reports
+kraken-tests/reports/
+
+cypress-tests/cypress/e2e/1-getting-started
+cypress-tests/cypress/e2e/2-advanced-examples
+
+
+# Ignorar archivo package-lock.json
+kraken-tests/package-lock.json
