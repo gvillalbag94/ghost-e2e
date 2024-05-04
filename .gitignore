@@ -6,6 +6,8 @@ kraken-tests/reports/
 
 cypress-tests/cypress/e2e/1-getting-started
 cypress-tests/cypress/e2e/2-advanced-examples
+cypress-tests/cypress/screenshots
+cypress-tests/cypress/.DS_Store
 
 
 # Ignorar archivo package-lock.json
