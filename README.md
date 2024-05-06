@@ -17,6 +17,7 @@ Este repositorio contiene dos carpetas principales:
 * cypress-test: Es la carpeta raiz del proyecto de pruebas automatizadas bajo la herramienta Cypress.
 
 ### ¿Cómo empezar?:
+Nota: Debido a un bug encontrado en Kraken las pruebas se deben realizar en un sistema operativo MacOS 
 
 1. Clonar el repositorio:
 
