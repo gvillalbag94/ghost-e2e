@@ -1,7 +1,20 @@
-Feature: Failed login due to empty fields
+Feature: Como usuario inicio sesion con credenciales incorrectas, luego con 
+  credenciales correctas, al entrar a la plataforma cierro sesión.
+
   @user1 @web
-  Scenario: User attempts to login without entering credentials
-    Given I navigate to page "http://54.188.89.84/ghost/"
-    When the user tries to log in without entering any credentials
-    Then the system should display an error message indicating that the login failed due to empty fields
-    And the user should remain on the login page
+  Scenario: Como usuario inicio sesion con credenciales incorrectas, despues con credenciales correctas, luego cierro sesión.
+    Given I navigate to page "<HOST>"
+    And I wait for 2 seconds
+    When I login with incorrect credentials
+    And I wait for 2 seconds
+    And I check a error message "There is no user with that email address."
+    And I wait for 2 seconds
+    When I login with correct credentials "<EMAIL>" "<PASSWORD>"
+    And I wait for 5 seconds
+    And I check go to the "dashboard" page
+    And I open the profile settings
+    When I select the sign out
+    And I wait for 2 seconds
+    Then I check return to the sign in page
+
+  
