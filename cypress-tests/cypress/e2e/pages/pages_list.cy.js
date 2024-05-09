@@ -4,5 +4,4 @@ context('Error en inicio de sesion por email y contraseña incorrecta.', () => {
     cy.visit('http://54.188.89.84/ghost/');
   })
 
- 
 })
