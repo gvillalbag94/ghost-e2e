@@ -1,124 +1,20 @@
-Feature: Failed login due to empty fields
+Feature: Como usuario inicio sesion con credenciales incorrectas, luego con 
+  credenciales correctas, al entrar a la plataforma cierro sesión.
 
-@user1 @web
-Scenario: Publish a draft
-  Given I navigate to page "http://54.188.89.84/ghost/#/signin"
-  And I wait for 3 seconds
-  And I enter my user "user@example.com"
-  And I wait for 3 seconds
-  And I enter my password "123456789**"
-  And I wait for 3 seconds
-  And I click on Login
-  And I wait for 3 seconds
-  When I navigate to the draft section
-  And I wait for 3 seconds
-  And I click on the Edit Draft button
-  And I wait for 3 seconds
-  And I click on publish button
-  And I wait for 3 seconds
-  And I click on continue final review button
-  And I wait for 3 seconds
-  And I click on publish post button
-  And I wait for 3 seconds
-  And I click on Editor
-  And I wait for 3 seconds
-  And I click on Post
-  And I wait for 3 seconds
-  When I navigate to the published section
-  And I wait for 3 seconds
-  Then The draft was published
-  And I wait for 3 seconds
-  And I click on Profile
-  And I wait for 3 seconds
-  And I click on Logout
- 
+  @user1 @web
+  Scenario: Como usuario inicio sesion con credenciales incorrectas, despues con credenciales correctas, luego cierro sesión.
+    Given I navigate to page "<HOST>"
+    And I wait for 2 seconds
+    When I login with incorrect credentials
+    And I wait for 2 seconds
+    And I check a error message "There is no user with that email address."
+    And I wait for 2 seconds
+    When I login with correct credentials "<EMAIL>" "<PASSWORD>"
+    And I wait for 5 seconds
+    And I check go to the "dashboard" page
+    And I open the profile settings
+    When I select the sign out
+    And I wait for 2 seconds
+    Then I check return to the sign in page
 
-@user2 @web
-Scenario: UnPublist a post
-  Given I navigate to page "http://54.188.89.84/ghost/#/signin"
-  And I wait for 3 seconds
-  And I enter my user "user@example.com"
-  And I wait for 3 seconds
-  And I enter my password "123456789**"
-  And I wait for 3 seconds
-  And I click on Login
-  And I wait for 3 seconds
-  When I navigate to the published section
-  And I wait for 3 seconds
-  And I click on the Edit Published register button
-  And I wait for 3 seconds
-  And I click on Unpublish
-  And I wait for 3 seconds
-  And I click on Unpublish and revert to private draft
-  And I wait for 3 seconds
-  And I click on Post
-  And I wait for 3 seconds
-  When I navigate to the draft section
-  And I wait for 3 seconds
-  Then The post was Unpublished
-  And I wait for 3 seconds
-  And I click on Profile
-  And I wait for 3 seconds
-  And I click on Logout
- 
- 
-@user3 @web
-Scenario: List Posts (Drafts)
-  Given I navigate to page "http://54.188.89.84/ghost/#/signin"
-  And I wait for 3 seconds
-  And I enter my user "user@example.com"
-  And I wait for 3 seconds
-  And I enter my password "123456789**"
-  And I wait for 3 seconds
-  And I click on Login
-  And I wait for 3 seconds
-  When I navigate to the draft section
-  And I wait for 3 seconds
-  Then The drafts List
-  And I wait for 3 seconds
-  And I click on Profile
-  And I wait for 3 seconds
-  And I click on Logout
- 
- 
- 
-@user4 @web
-Scenario: List Posts (Scheduled)
-  Given I navigate to page "http://54.188.89.84/ghost/#/signin"
-  And I wait for 3 seconds
-  And I enter my user "user@example.com"
-  And I wait for 3 seconds
-  And I enter my password "123456789**"
-  And I wait for 3 seconds
-  And I click on Login
-  And I wait for 3 seconds
-  When I navigate to the Sheduled section
-  And I wait for 3 seconds
-  And I click on Show all post
-  And I wait for 3 seconds
-  Then The Post List
-  And I wait for 3 seconds
-  And I click on Profile
-  And I wait for 3 seconds
-  And I click on Logout
- 
- 
-@user5 @web
-Scenario: List Posts (Published)
-  Given I navigate to page "http://54.188.89.84/ghost/#/signin"
-  And I wait for 3 seconds
-  And I enter my user "user@example.com"
-  And I wait for 3 seconds
-  And I enter my password "123456789**"
-  And I wait for 3 seconds
-  And I click on Login
-  And I wait for 3 seconds
-  When I navigate to the published section
-  And I wait for 3 seconds
-  Then The published List
-  And I wait for 3 seconds
-  And I click on Profile
-  And I wait for 3 seconds
-  And I click on Logout
   
-
