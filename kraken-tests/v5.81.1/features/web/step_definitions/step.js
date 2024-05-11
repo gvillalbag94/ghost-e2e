@@ -1,3 +1,4 @@
+
 const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 const { faker } = require('@faker-js/faker');
@@ -41,7 +42,7 @@ When('I select the sign out',  async function () {
 When('I go to pages screen', async function () {
     let pagesButton = await this.driver.$('a[href="#/pages/"]');
     await pagesButton.click();
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise(r => setTimeout(r, 1500));
     let currentUrl = await this.driver.getUrl();
     return expect(currentUrl).to.contains('/pages');
   });

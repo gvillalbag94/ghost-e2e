@@ -1,8 +1,8 @@
-Feature: Como usuario puedo crear una nueva pagina, ver la pagina en la lista de paginas, eliminarla 
-    y ver que ya no existe la pagina.
+Feature: Como usuario puedo crear una nueva pagina, ver la pagina en la lista de paginas, editarla
+    y ver que existe con su nuevo nombre y eliminarla.
 
   @user1 @web
-  Scenario: Como usuario inicio sesion con credenciales correctas, creo una pagina, luego la veo en la lista de paginas, luego la elimino.
+  Scenario: Como usuario inicio sesion con credenciales correctas, creo una pagina, luego la veo en la lista de paginas, luego la edito, confirmo que existe con su nuevo nombre, luego la elimino.
     Given I navigate to page "<HOST>"
     And I wait for 2 seconds
     When I login with correct credentials "<EMAIL>" "<PASSWORD>"
@@ -23,12 +23,18 @@ Feature: Como usuario puedo crear una nueva pagina, ver la pagina en la lista de
     Then I check exist the page with name "Example page"
     And I wait for 2 seconds
     And I open the page with name "Example page"
+    And I edit the title with the name "Page with TAG"
+    And I open-close the page settings
+    And I choose a Tag
+    And I wait for 2 seconds
+    And I open-close the page settings
+    And I update the page
+    And I wait for 2 seconds
+    And I return to the pages screens
+    And I wait for 2 seconds
+    And I open the page with name "Page with TAG"
     And I open-close the page settings
     And I deleted the page
     And I wait for 2 seconds
-    Then I check not exist the page with name "Example page"
-
-
-
-
-
+    Then I check not exist the page with name "Page with TAG"
+    

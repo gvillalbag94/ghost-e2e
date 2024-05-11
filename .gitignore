@@ -1,14 +1,21 @@
 # Ignorar directorio node_modules
-kraken-tests/node_modules/
+kraken-tests/v3.42.4/node_modules/
+kraken-tests/v5.81.1/node_modules/
 
 # Ignorar directorio reports
-kraken-tests/reports/
+kraken-tests/v3.42.4/reports/
+kraken-tests/v5.81.1/reports/
 
-cypress-tests/cypress/e2e/1-getting-started
-cypress-tests/cypress/e2e/2-advanced-examples
+kraken-tests/v3.42.4/.kraken/
+kraken-tests/v5.81.1/.kraken/
+
 cypress-tests/cypress/screenshots
 cypress-tests/cypress/.DS_Store
 
 
 # Ignorar archivo package-lock.json
-kraken-tests/package-lock.json
+kraken-tests/v3.42.4/package-lock.json
+kraken-tests/v5.81.1/package-lock.json
+
+#Ignorar la carpeta screenshots
+screenshots/

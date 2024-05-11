@@ -29,4 +29,9 @@ Feature: Como usuario puedo crear una nueva pagina, ver la pagina en la lista de
     And I return to the pages screens
     And I wait for 2 seconds
     Then I check exist the page with name "Edit page"
+    And I open the page with name "Edit page"
+    And I open-close the page settings
+    And I deleted the page
+    And I wait for 2 seconds
+    Then I check not exist the page with name "Edit page"
    
