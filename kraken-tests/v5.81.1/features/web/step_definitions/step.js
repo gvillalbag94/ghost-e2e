@@ -568,15 +568,15 @@ When('I click in internal tags', async function () {
 
 
 //Edicion de un internal tag
-When('I click in internal tag', async function() {
-    let element = await this.driver.$('li[data-test-tag = "663808ec13b8100ae3c4dd82"]');
-    return await element.click();
-});
+//When('I click in internal tag', async function() {
+//    let element = await this.driver.$('li[data-test-tag = "663808ec13b8100ae3c4dd82"]');
+//    return await element.click();
+//});
 
-Then('I confirm that the  internal tag was edit', async function() {
-    let element = await this.driver.$('li[data-test-tag = "663808ec13b8100ae3c4dd82"]');
-    return await element.click();
-});
+When('I get the tag created', async function () {
+    let element = await this.driver.$('.tags-list li:nth-last-child(2)')
+    await element.click();
+})
 
 /* Code by Victor */
 

@@ -20,7 +20,7 @@ Scenario: Edit a public tag
   And I wait for 2 seconds
   And I click in Tags
   And I wait for 2 seconds
-  And I click in tag
+  And I get the tag created
   And I wait for 2 seconds
   When I enter a description of tag "descripción para el tag de prueba"
   And I wait for 2 seconds
@@ -28,5 +28,5 @@ Scenario: Edit a public tag
   And I wait for 2 seconds
   And I click in Tags
   And I wait for 2 seconds
-  Then I confirm that the tag was edit
+  Then I get the tag created
   And I wait for 2 seconds

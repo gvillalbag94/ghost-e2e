@@ -1,4 +1,4 @@
-Feature: Tag
+Feature: Edit a internal tag
 
 
 @user1 @web
@@ -23,13 +23,13 @@ Scenario: Edit a internal tag
   And I wait for 2 seconds
   And I click in Tags
   And I wait for 2 seconds
-  And I click in internal tag
+  When I get the tag created
   And I wait for 2 seconds
-  When I enter a description of tag "descripción para el tag interno de prueba"
+  And I enter a description of tag "descripción para el tag interno de prueba"
   And I wait for 2 seconds
   And I click in save
   And I wait for 2 seconds
   And I click in Tags
   And I wait for 2 seconds
-  Then I confirm that the  internal tag was edit
+  Then I get the tag created
   And I wait for 2 seconds

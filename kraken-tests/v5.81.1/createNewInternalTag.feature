@@ -22,4 +22,5 @@ Scenario: Create a internal tag
   And I wait for 2 seconds
   And I click in Tags
   And I wait for 2 seconds
-  Then I confirm that the tag was create
+  Then I get the tag created
+  And I wait for 2 seconds
