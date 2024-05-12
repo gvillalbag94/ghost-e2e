@@ -1,4 +1,4 @@
-const user = require('../../fixtures/user_ghost')
+const user = require('../../../fixtures/user_ghost')
 
 context('Inicio de sesión exitoso por email y contraseña correctos.', () => {
   beforeEach(() => {
@@ -8,14 +8,22 @@ context('Inicio de sesión exitoso por email y contraseña correctos.', () => {
   it('Inicio de sesión exitoso con correo y password correcto', () => {
      // Seleccionar el campo del correo e ingresar un valor.
      cy.get('input[id="identification"]').type(user.email);
+     cy.screenshot('../screenshots/login_success/before_0');
+    cy.wait(500);
     
      // Seleccionar el campo del password e ingresar un valor.
      cy.get('input[id="password"]').type(user.password);
+     cy.screenshot('../screenshots/login_success/before_1');
+    cy.wait(500);
  
       // Seleccioanr el boton de inicio de sesion.
       cy.get('button[type="submit"]').click();
+      cy.screenshot('../screenshots/login_success/before_2');
+    cy.wait(500);
  
      // La URL contiene la ruta de dashboard.
      cy.url().should('contain','/dashboard');
+     cy.screenshot('../screenshots/login_success/before_3');
+    cy.wait(500);
   })
 })
