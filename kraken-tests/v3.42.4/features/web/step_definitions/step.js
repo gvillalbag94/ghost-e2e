@@ -490,29 +490,29 @@ Then('The published List', async function () {
 
 
 // inicio de sesion
-When('I enter email {kraken-string}', async function (identification) {
-    let element = await this.driver.$('#identification');
-    return await element.setValue(identification);
-});
+//When('I enter email {kraken-string}', async function (identification) {
+//    let element = await this.driver.$('#ember8');
+//    return await element.setValue(identification);
+//});
 
 // When('I enter password {kraken-string}', async function (password) {
 //     let element = await this.driver.$('#password');
 //     return await element.setValue(password);
 // });
 
-When('I click in sign in', async function() {
-    let element = await this.driver.$('#ember5');
-    return await element.click();
-});
+//When('I click in sign in', async function() {
+//    let element = await this.driver.$('#ember5');
+//    return await element.click();
+//});
 
 // creacion de un nuevo tag
 When('I click in Tags', async function() {
-    let element = await this.driver.$('a[data-test-nav="tags"]');
+    let element = await this.driver.$('a[href="#/tags/"]');
     return await element.click();
 });
 
 When('I click in New Tag', async function() {
-    let element = await this.driver.$('a[class="ember-view gh-btn gh-btn-primary"]');
+    let element = await this.driver.$('a[class="ember-view gh-btn gh-btn-green"]');
     return await element.click();
 });
 
@@ -522,16 +522,20 @@ When('I enter a name of tag {kraken-string}', async function (name) {
 });
 
 When('I click in save', async function() {
-    let element = await this.driver.$('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]');
+    let element = await this.driver.$('button[class="gh-btn gh-btn-blue gh-btn-icon ember-view"]');
     return await element.click();
 });
 
 
-Then('I confirm that the tag was create', async function() {
-    let element = await this.driver.$('a[data-test-nav="tags"]');
-    return await element.click();
-});
+//Then('I confirm that the tag was create', async function() {
+//    let element = await this.driver.$('a[data-test-nav="tags"]');
+//    return await element.click();
+//});
 
+When('I get the tag created', async function () {
+    let element = await this.driver.$('.tags-list li:nth-last-child(2)')
+    await element.click();
+})
 
 
 // Edicion de un tag publico
@@ -551,13 +555,13 @@ Then('I confirm that the tag was edit', async function() {
 });
 
 // Eliminacion del tag publica
-When('I click in tag to delete', async function() {
-    let element = await this.driver.$('li[data-test-tag = "66381fa613b8100ae3c4dfcc"]');
-    return await element.click();
-});
+//When('I click in tag to delete', async function() {
+//    let element = await this.driver.$('li[data-test-tag = "66381fa613b8100ae3c4dfcc"]');
+//    return await element.click();
+//});
 
 When('I click in delete tag', async function () {
-    let element = await this.driver.$('button[class="gh-btn gh-btn-red gh-btn-icon"]');
+    let element = await this.driver.$('button[class="gh-btn gh-btn-red gh-btn-icon mb15"]');
     return await element.click();;
 });
 
@@ -566,10 +570,10 @@ When('I confirm the action', async function () {
     return await element.click();;
 });
 
-Then('I confirm that the tag do not exist', async function() {
-    let element = await this.driver.$('a[data-test-nav="tags"]');
-    return await element.click();
-});
+//Then('I confirm that the tag do not exist', async function() {
+//    let element = await this.driver.$('a[data-test-nav="tags"]');
+//    return await element.click();
+//});
 
 //Creacion de un internal tag
 When('I click in internal tags', async function () {
