@@ -163,28 +163,28 @@ Then('I choose a Tag', async function () {
   });
 
   
-When('I enter identification {kraken-string}', async function (email) {
-    let element = await this.driver.$('#identification');
+  When('I enter identification {kraken-string}', async function (email) {
+    let element = await this.driver.$('input[name=identification]');
     return await element.setValue(email);
 });
 
 When('I enter password {kraken-string}', async function (password) {
-    let element = await this.driver.$('#password');
+    let element = await this.driver.$('input[name=password]');
     return await element.setValue(password);
 });
 
 When('I click next', async function() {
-    let element = await this.driver.$('#ember5');
+    let element = await this.driver.$('button[type=submit]');
     return await element.click();
 });
 
 When('I click members', async function() {
-    let element = await this.driver.$('a[data-test-nav=members]');
+    let element = await this.driver.$('a[href*=members]');
     return await element.click();
 });
 
 When('I click new member', async function() {
-    let element = await this.driver.$('a[data-test-new-member-button=true]');
+    let element = await this.driver.$('a[href*=new]');
     return await element.click();
 });
 
@@ -209,12 +209,12 @@ When('I click on Add label1', async function() {
 });
 
 When('I click save', async function() {
-    let element = await this.driver.$('button[data-test-button=save]');
+    let element = await this.driver.$(".//*//section[contains(@class, 'view-actions')]//*//span[text() = '" + "Save" + "']");
     return await element.click();
 });
 
-Then('I click the second member {kraken-string}', async function(member) {
-    let element = await this.driver.$(".//*//tbody[contains(@class, 'ember-view')]//*//h3[text() = '" + member + "']");
+Then('I select the member created {string}', async function(member) {
+    let element = await this.driver.$(".//*//section[contains(@class, 'content-list')]//*//h3[text() = '" + member + "']");
     return await element.click();
 });
 
@@ -224,17 +224,17 @@ Then('I click the configuration button', async function() {
 });
 
 Then('I click the delete button', async function() {
-    let element = await this.driver.$('button[data-test-button=delete-member]');
+    let element = await this.driver.$('div.w-60 button');
     return await element.click();
 });
 
 Then('I click the confirm delete button', async function() {
-    let element = await this.driver.$('button[data-test-button=confirm]');
+    let element = await this.driver.$(".//*//div[contains(@class, 'modal-footer')]//*//span[text() = '" + "Delete member" + "']");
     return await element.click();
 });
 
-Then('I click dashboard', async function() {
-    let element = await this.driver.$('a[data-test-nav=dashboard]');
+Then('I click view site', async function() {
+    let element = await this.driver.$('a[href*=site]');
     return await element.click();
 });
 
@@ -251,7 +251,7 @@ Then('I clear the text on the email inputbox', async function() {
 });
 
 Then('I click the search field', async function() {
-    let element = await this.driver.$('input[data-test-input=members-search]');
+    let element = await this.driver.$('div.relative.gh-members-header-search input');
     return await element.click();
 });
 
