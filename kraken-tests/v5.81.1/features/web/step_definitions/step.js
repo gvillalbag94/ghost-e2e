@@ -137,6 +137,11 @@ Then('I open the page with name {kraken-string}', async function (pageName) {
     return await pageCreated.click();
   });
 
+Then('I select the member created {string}', async function(member) {
+    let element = await this.driver.$(".//*//tbody[contains(@class, 'ember-view')]//*//h3[text() = '" + member + "']");
+    return await element.click();
+});
+
 Then('I edit the title with the name {kraken-string}', async function (newTitle) {
     let titleTextArea = await this.driver.$('textarea[placeholder="Page title"]');
     return await titleTextArea.setValue(newTitle);

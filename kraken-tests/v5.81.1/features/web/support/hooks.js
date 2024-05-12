@@ -18,7 +18,7 @@ var screenshotNumber = 0;
 
 BeforeStep(async function(test) {
   const featurePath = test.pickle.uri.split('/').pop().split('\\').pop().split('.')[0];
-  const screenshotsPath = process.cwd().replace('/kraken-tests/v3.42.4', '').replace('\\kraken-tests\\v3.42.4', '') + '/screenshots/' + featurePath;
+  const screenshotsPath = process.cwd().replace('/kraken-tests/v5.81.1', '').replace('\\kraken-tests\\v5.81.1', '') + '/screenshots/' + featurePath;
 
   if (!fs.existsSync(screenshotsPath)) {
     fs.mkdirSync(screenshotsPath,{recursive: true,});
