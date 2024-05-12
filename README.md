@@ -80,4 +80,27 @@ Nota: Debido a un bug encontrado en Kraken las pruebas se deben realizar en un s
     cypress run --headless
 ```
 
-9. Al llegar a este punto ya has ejecutado todas las pruebas, gracias!
+9. Al llegar a este punto ya has ejecutado todas las pruebas end to end
+10. Para ejecutar las pruebas de regresión visual en Resemblejs se siguen los pasos a continuación para instalar la libreria:
+```bash
+    cd resemble
+    npm install
+```
+11. Se ejecutan las pruebas con el comando:
+```bash
+    node index.js
+```
+12. Dentro de la carpeta resemble, se habrá creado la carpeta results la cual contendrá 10 subcarpetas correspondientes a cada una de las pruebas de regresión visual con sus respectivos resultados
+    La carpeta contiene:
+     - Las imagenes pertenecientes a la prueba realizada en la versión 5.81.1 (before)
+     - Las imagenes pertenecientes a la prueba realizada en la versión 3.42.4 (after)
+     - Las imagenes correspondientes a los resultados de la prueba de regresión visual (compare)
+     - Un reporte HTML que muestra todas las imágenes (before, after y compare) de cada paso de las pruebas
+     - Un archivo css que le da los estilos al archivo HTML
+13. Para visualizar los resultados en los reportes HTML:
+```bash
+    cd results
+    http-server
+```
+Al correr el http-server, se debe entrar a una de las URLs generadas para visualizar el reporte en el navegador.
+(Procurar eliminar las cookies del navegador antes de realizar este paso para asegurar el buen funcionamiento de la visualización)
