@@ -583,6 +583,90 @@ Then('I confirm that the  internal tag was edit', async function() {
     return await element.click();
 });
 
+/* Code by Victor */
+
+
+When('I click on the New Draft button', async function () {
+    let element = await this.driver.$('body > div.gh-app > div > main > section > div > header > section > div.view-actions-top-row > a');
+    return await element.click();
+});
+
+
+When('I enter new Post Title {kraken-string}', async function (title) {
+    let titleElement = await this.driver.$('textarea[class="gh-editor-title  ember-text-area gh-input ember-view"]');
+    return await titleElement.setValue(title);
+});
+
+
+When('I click on settings', async function () {
+    let element = await this.driver.$('body > div.gh-app > div > main > button > span');
+    return await element.click();
+});
+
+
+When('I enter my user old version {kraken-string}', async function (value) {
+    let element = await this.driver.$('input[type="email"]');
+    return await element.setValue(value);
+});
+
+When('I enter my password old version {kraken-string}', async function (value) {
+    let element = await this.driver.$('input[type="password"]');
+    return await element.setValue(value);
+});
+
+
+
+Then('I click on Login old version', async function () {
+    let element = await this.driver.$('button[type="submit"]');
+    return await element.click();
+});
+
+
+When('I navigate to the draft section old version',  async function () {
+    let element = await this.driver.$('a[href="#/posts/?type=draft"]');
+    return await element.click();
+});
+
+
+When('I click on the New Draft button old version', async function () {
+    let element = await this.driver.$('a[href="#/editor/post/"]');
+    return await element.click();
+});
+
+
+
+Then('I enter new Post Title old version {kraken-string}', async function (title) {
+    let titleElement = await this.driver.$('textarea[class="gh-editor-title ember-text-area gh-input ember-view"]');
+    return await titleElement.setValue(title);
+});
+
+
+When('I click on settings old version', async function () {
+    let element = await this.driver.$('.post-settings');
+    return await element.click();
+});
+
+When('I click on Post old version', async function () {
+
+    let element = await this.driver.$('a[href="#/posts/?type=draft"]');
+    return await element.click();
+});
+
+When('I click on Profile old version', async function () {
+    let element = await this.driver.$('.gh-user-name');
+    return await element.click();
+});
+
+
+When('I click on Logout old version', async function () {
+    /*let element = await this.driver.$('body > div > div > ul > li:nth-child(9)');*/
+    let element = await this.driver.$('a[href="#/signout/"]');
+    return await element.click();
+});
+
+/* Code Finish by Victor*/
+
+
 
 
 
