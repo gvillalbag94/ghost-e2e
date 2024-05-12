@@ -8,22 +8,22 @@ context('Inicio de sesión exitoso por email y contraseña correctos.', () => {
   it('Inicio de sesión exitoso con correo y password correcto', () => {
      // Seleccionar el campo del correo e ingresar un valor.
      cy.get('input[name="identification"]').type(user.email);
-     cy.screenshot('../screenshots/login_success/after_0');
+     cy.screenshot('../login_success/after_0');
      cy.wait(500);
     
      // Seleccionar el campo del password e ingresar un valor.
      cy.get('input[name="password"]').type(user.password);
-     cy.screenshot('../screenshots/login_success/after_1');
+     cy.screenshot('../login_success/after_1');
      cy.wait(500);
  
       // Seleccioanr el boton de inicio de sesion.
       cy.get('button[type="submit"]').click();
-      cy.screenshot('../screenshots/login_success/after_2');
+      cy.screenshot('../login_success/after_2');
       cy.wait(500);
  
      // La URL contiene la ruta de dashboard.
      cy.url().should('contain','/site');
-     cy.screenshot('../screenshots/login_success/after_3');
+     cy.screenshot('../login_success/after_3');
      cy.wait(500);
   })
 })
