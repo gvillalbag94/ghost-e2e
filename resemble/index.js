@@ -1,7 +1,7 @@
 const compareImages = require("resemblejs/compareImages")
 const fs = require('fs');
 
-function browser(b,test,nombresImagenes_nuevas,nombresImagenes_antiguas, imagePath){
+function browser(b,test,nombresImagenes_nuevas,nombresImagenes_antiguas){
     return `<div class=" escenario" id="test0">
     <div class=" btitle">
         <h2>Paso: ${b}</h2>
@@ -9,11 +9,11 @@ function browser(b,test,nombresImagenes_nuevas,nombresImagenes_antiguas, imagePa
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Reference</span>
-        <img class="img2" src="${imagePath}/${test}/${nombresImagenes_nuevas[b]}" id="refImage" label="Reference">
+        <img class="img2" src="./${nombresImagenes_nuevas[b]}" id="refImage" label="Reference">
       </div>
       <div class="imgcontainer">
         <span class="imgname">Test</span>
-        <img class="img2" src="${imagePath}/${test}/${nombresImagenes_antiguas[b]}" id="testImage" label="Test">
+        <img class="img2" src="./${nombresImagenes_antiguas[b]}" id="testImage" label="Test">
       </div>
     </div>
     <div class="imgline">
@@ -24,7 +24,7 @@ function browser(b,test,nombresImagenes_nuevas,nombresImagenes_antiguas, imagePa
     </div>
   </div>`
 }
-function createReport(datetime, a,test,nombresImagenes_nuevas,nombresImagenes_antiguas,imagePath){
+function createReport(datetime, a,test,nombresImagenes_nuevas,nombresImagenes_antiguas){
     return `
     <html>
         <head>
@@ -36,7 +36,7 @@ function createReport(datetime, a,test,nombresImagenes_nuevas,nombresImagenes_an
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
-                ${a.map(b=>browser(b,test,nombresImagenes_nuevas,nombresImagenes_antiguas, imagePath))}
+                ${a.map(b=>browser(b,test,nombresImagenes_nuevas,nombresImagenes_antiguas))}
             </div>
         </body>
     </html>`
@@ -69,13 +69,14 @@ async function executeTest(test){
               analysisTime: data.analysisTime
           }
           if (!fs.existsSync('./results/results_'+test)) {
-            fs.mkdirSync('./results/results_'+test); 
+            fs.mkdirSync('./results/results_'+test, {recursive: true,}); 
           }
           fs.writeFileSync(`./results/results_${test}/compare${i}.png`, data.getBuffer());
+          fs.writeFileSync(`./results/results_${test}/${nombresImagenes_nuevas[i]}`,  fs.readFileSync(`${carpetaImagenes}${nombresImagenes_nuevas[i]}`));
+          fs.writeFileSync(`./results/results_${test}/${nombresImagenes_antiguas[i]}`,  fs.readFileSync(`${carpetaImagenes}${nombresImagenes_antiguas[i]}`));
         }
     }
-    const imagePath = process.cwd().replace('/resemble', '/screenshots').replace('\\resemble','\\screenshots');
-    fs.writeFileSync(`./results/results_${test}/report.html`, createReport(datetime, a,test,nombresImagenes_nuevas,nombresImagenes_antiguas, imagePath));
+    fs.writeFileSync(`./results/results_${test}/report.html`, createReport(datetime, a,test,nombresImagenes_nuevas,nombresImagenes_antiguas));
     fs.copyFileSync('./index.css', `./results/results_${test}/index.css`);
 }
 
