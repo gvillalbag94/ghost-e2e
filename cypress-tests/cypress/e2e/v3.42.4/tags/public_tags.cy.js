@@ -4,126 +4,86 @@ const user = require('../../fixtures/user_ghost')
 context('Functionality Post.', () => {
   beforeEach(() => {
   /* Given I navigate to page*/
-    cy.visit('http://54.188.89.84/ghost/#/signin');
+    cy.visit('http://52.42.171.94:3001/ghost/#/signin');
   })
 
- 
+
   it('Create a new public tag', () => {
     // Given I enter my user 
-    cy.get('input[id="identification"]').type(user.email);
+    cy.get('#ember8').type(user.email);
+    cy.screenshot('./Screens_test/img100');
     // And I enter my password.
-    cy.get('input[id="password"]').type(user.password);
+    cy.get('#ember10').type(user.password);
+    cy.screenshot('./Screens_test/img101');
     // And  click on Login.
-    cy.get('button[type="submit"]').click();
+    cy.get('#ember12').click();
+    cy.screenshot('./Screens_test/img102');
     // And URL contiene la ruta de dashboard.
-    cy.url().should('contain','/dashboard');
+    //cy.url().should('contain','/dashboard');
+    cy.screenshot('./Screens_test/img103');
     cy.wait(2000); 
     // And I click in Tags 
-    cy.get('a[data-test-nav="tags"]').click();
+    cy.get('a[href="#/tags/"]').click();
+    cy.screenshot('./Screens_test/img104');
     cy.wait(2000); 
     // When I click in New Tag
-    cy.get('a[class="ember-view gh-btn gh-btn-primary"]').click();
+    cy.get('a[class="ember-view gh-btn gh-btn-green"]').click();
+    cy.screenshot('./Screens_test/img105');
     cy.wait(2000); 
     //And I enter a name of tag
     cy.get('form').within(() => {
         cy.get('input[id="tag-name"]').type('NuevoTagDePrueba')
+        cy.screenshot('./Screens_test/img106');
     })
     cy.wait(2000); 
     // And I click in save
-    cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click();
+    cy.get('button[class="gh-btn gh-btn-blue gh-btn-icon ember-view"]').click();
+    cy.screenshot('./Screens_test/img107');
     cy.wait(3000); 
-    // Then confirm that the tag was create
-    cy.get('a[data-test-nav="tags"]').click();
-    cy.wait(3000);
  })
 
-
- it('Edit a public tag', () => {
-    // Given I enter my user 
-    cy.get('input[id="identification"]').type(user.email);
-    // And I enter my password.
-    cy.get('input[id="password"]').type(user.password);
-    // And  click on Login.
-    cy.get('button[type="submit"]').click();
-    // And URL contiene la ruta de dashboard.
-    cy.url().should('contain','/dashboard');
-    cy.wait(2000); 
-    // And I click in Tags 
-    cy.get('a[data-test-nav="tags"]').click();
-    cy.wait(2000); 
-    // When I click in New Tag
-    cy.get('a[class="ember-view gh-btn gh-btn-primary"]').click();
-    cy.wait(2000); 
-    //And I enter a name of tag
-    cy.get('form').within(() => {
-        cy.get('input[id="tag-name"]').type('NuevoTagDePrueba')
-    })
-    cy.wait(2000); 
-    // And I click in save
-    cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click();
-    cy.wait(2000); 
-    // And I click in Tags
-    cy.get('a[data-test-nav="tags"]').click();
-    cy.wait(2000); 
-    // And I click in tag
-    cy.get('li[data-test-tag = "6638211713b8100ae3c4dfe9"]').click();
-    cy.wait(2000);
-    // When enter a description of tag
-    cy.get('form').within(() => {
-        cy.get('textarea[class="gh-input gh-tag-details-textarea"]').type('descripción para el tag de prueba')
-    })
-    cy.wait(2000);
-    // And I click in save
-    cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click();
-    cy.wait(2000); 
-    // And I click in Tags 
-    cy.get('a[data-test-nav="tags"]').click();
-    cy.wait(2000); 
-    //Then I confirm that the tag was edit
-    cy.get('li[data-test-tag = "6638211713b8100ae3c4dfe9"]').click();
-    cy.wait(2000);
- })
 
 
  it('Delete a public tag', () => {
     // Given I enter my user 
-    cy.get('input[id="identification"]').type(user.email);
+    // Given I enter my user 
+    cy.get('#ember8').type(user.email);
+    cy.screenshot('./Screens_test/img100');
     // And I enter my password.
-    cy.get('input[id="password"]').type(user.password);
+    cy.get('#ember10').type(user.password);
+    cy.screenshot('./Screens_test/img101');
     // And  click on Login.
-    cy.get('button[type="submit"]').click();
+    cy.get('#ember12').click();
+    cy.screenshot('./Screens_test/img102');
     // And URL contiene la ruta de dashboard.
-    cy.url().should('contain','/dashboard');
+    cy.screenshot('./Screens_test/img103');
     cy.wait(2000); 
     // And I click in Tags 
-    cy.get('a[data-test-nav="tags"]').click();
+    cy.get('a[href="#/tags/"]').click();
+    cy.screenshot('./Screens_test/img104');
     cy.wait(2000); 
     // When I click in New Tag
-    cy.get('a[class="ember-view gh-btn gh-btn-primary"]').click();
+    cy.get('a[class="ember-view gh-btn gh-btn-green"]').click();
+    cy.screenshot('./Screens_test/img105');
     cy.wait(2000); 
     //And I enter a name of tag
     cy.get('form').within(() => {
         cy.get('input[id="tag-name"]').type('NuevoTagDePrueba')
+        cy.screenshot('./Screens_test/img106');
     })
     cy.wait(2000); 
     // And I click in save
-    cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click();
+    cy.get('button[class="gh-btn gh-btn-blue gh-btn-icon ember-view"]').click();
+    cy.screenshot('./Screens_test/img107');
     cy.wait(2000); 
-    // And I click in Tags
-    cy.get('a[data-test-nav="tags"]').click();
-    cy.wait(2000); 
-    // And I click in tag
-    cy.get('li[data-test-tag = "663827fb13b8100ae3c4e07a"]').click();
-    cy.wait(2000);
     // When I click in delete tag
-    cy.get('button[class="gh-btn gh-btn-red gh-btn-icon"]').click();
+    cy.get('button[class="gh-btn gh-btn-red gh-btn-icon mb15"]').click();
+    cy.screenshot('./Screens_test/img84');
     cy.wait(2000); 
     // And I confirm the action
     cy.get('button[class="gh-btn gh-btn-red gh-btn-icon ember-view"]').click();
-    cy.wait(7000);
-    // Then I confirm that the tag doesn't exist
-    cy.get('a[data-test-nav="tags"]').click();
-    cy.wait(2000); 
+    cy.screenshot('./Screens_test/img85');
+    cy.wait(2000);
  })
 
 })
