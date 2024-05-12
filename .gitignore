@@ -24,3 +24,8 @@ screenshots/
 resemble/package-lock.json
 resemble/node_modules
 resemble/results
+
+# Ignorar gen de dependecias para backstop
+backstop-tests/package-lock.json
+backstop-tests/node_modules
+backstop-tests/backstop_data
