@@ -19,3 +19,8 @@ kraken-tests/v5.81.1/package-lock.json
 
 #Ignorar la carpeta screenshots
 screenshots/
+
+# Ignorar gen de dependecias para resemble
+resemble/package-lock.json
+resemble/node_modules
+resemble/results

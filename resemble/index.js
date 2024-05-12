@@ -68,15 +68,15 @@ async function executeTest(test){
               diffBounds: data.diffBounds,
               analysisTime: data.analysisTime
           }
-          if (!fs.existsSync('./results_'+test)) {
-            fs.mkdirSync('./results_'+test); 
+          if (!fs.existsSync('./results/results_'+test)) {
+            fs.mkdirSync('./results/results_'+test); 
           }
-          fs.writeFileSync(`./results_${test}/compare${i}.png`, data.getBuffer());
+          fs.writeFileSync(`./results/results_${test}/compare${i}.png`, data.getBuffer());
         }
     }
     const imagePath = process.cwd().replace('/resemble', '/screenshots').replace('\\resemble','\\screenshots');
-    fs.writeFileSync(`./results_${test}/report.html`, createReport(datetime, a,test,nombresImagenes_nuevas,nombresImagenes_antiguas, imagePath));
-    fs.copyFileSync('./index.css', `./results_${test}/index.css`);
+    fs.writeFileSync(`./results/results_${test}/report.html`, createReport(datetime, a,test,nombresImagenes_nuevas,nombresImagenes_antiguas, imagePath));
+    fs.copyFileSync('./index.css', `./results/results_${test}/index.css`);
 }
 
 let tests_VRT = [
