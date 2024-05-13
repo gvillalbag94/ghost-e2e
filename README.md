@@ -1,4 +1,9 @@
 # Proyecto Pruebas automatizadas
+
+## Video explicación de procedimiento realizado en la semana
+
+[Videoexplicación de procedimiento ResembleJs y BackstopJs](https://youtu.be/n5HgkjKLhfU)
+
 ## Semana 6: Pruebas VRT (ResembleJs - BackstopJs)
 
 ## Integrantes:
